@@ -4,13 +4,12 @@ import PhoneForm from "./PhoneCreatorComponent";
 import PhoneTable from "./PhoneTableComponent";
 
 class Pizarra extends Component {
-  render() {
+  render(props) {
     return (
       <div className="PizarraComponent">
         <MDBContainer className="pt-4 d-flex flex-column">
           <PhoneForm />
-
-          <PhoneTable />
+          <PhoneTable phoneList={props.phoneArr} />
         </MDBContainer>
       </div>
     );

@@ -1,35 +1,73 @@
 import React, { Component } from "react";
 import {
   MDBContainer,
-  MDBInputGroup,
-  MDBSelect,
+  MDBRow,
+  MDBCol,
+  MDBCard,
+  MDBCardBody,
+  MDBBtn,
+  MDBInput,
+  MDBIcon,
   MDBSelectInput,
   MDBSelectOptions,
   MDBSelectOption,
+  MDBInputGroup,
+  MDBSelect,
 } from "mdbreact";
 class PhoneForm extends Component {
   state = {};
   render() {
     return (
-      <MDBContainer className="border border-primary rounded mb-0">
-        <MDBInputGroup
-          material
-          containerClassName="mb-3 mt-0"
-          hint="Nombre del equipo"
-        />
-        <div>
-          <MDBSelect>
-            <MDBSelectInput selected="Choose your option" />
-            <MDBSelectOptions>
-              <MDBSelectOption disabled>Choose your option</MDBSelectOption>
-              <MDBSelectOption value="1">Option 1</MDBSelectOption>
-              <MDBSelectOption value="2">Option 2</MDBSelectOption>
-              <MDBSelectOption value="3">Option 3</MDBSelectOption>
-              <MDBSelectOption value="4">Option 4</MDBSelectOption>
-              <MDBSelectOption value="5">Option 5</MDBSelectOption>
-            </MDBSelectOptions>
-          </MDBSelect>
-        </div>
+      <MDBContainer className="d-flex border flex-row justify-content-center ">
+        <MDBRow className="w-100">
+          <MDBCol md="24">
+            <MDBCard>
+              <MDBCardBody>
+                <form>
+                  <p className="h4 text-center py-4">Sign up</p>
+                  <div className="grey-text">
+                    <MDBInput
+                      label="Your name"
+                      group
+                      type="text"
+                      validate
+                      error="wrong"
+                      success="right"
+                    />
+
+                    <MDBInput
+                      label="Your email"
+                      group
+                      type="email"
+                      validate
+                      error="wrong"
+                      success="right"
+                    />
+                    <MDBInput
+                      label="Confirm your email"
+                      group
+                      type="text"
+                      validate
+                      error="wrong"
+                      success="right"
+                    />
+                    <MDBInput
+                      label="Your password"
+                      group
+                      type="password"
+                      validate
+                    />
+                  </div>
+                  <div className="text-center py-4 mt-3">
+                    <MDBBtn color="cyan" type="submit">
+                      Register
+                    </MDBBtn>
+                  </div>
+                </form>
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol>
+        </MDBRow>
       </MDBContainer>
     );
   }
