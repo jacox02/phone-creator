@@ -2,7 +2,24 @@ import React from "react";
 import { MDBTable, MDBTableBody, MDBTableHead } from "mdbreact";
 
 const PhoneTable = (props) => {
-  let phoneRender = () => {};
+  let phoneRender = props.phoneList.map((phone) => {
+    return (
+      <tr>
+        <td>{phone.id}</td>
+        <td>{phone.model}</td>
+        <td>{phone.screen}</td>
+        <td>{phone.storage}</td>
+        <td>{phone.battery}</td>
+
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td>1</td>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+    );
+  });
   return (
     <MDBTable>
       <MDBTableHead color="purple-gradient">
@@ -23,22 +40,7 @@ const PhoneTable = (props) => {
           <th>Almacenamiento</th>
         </tr>
       </MDBTableHead>
-      <MDBTableBody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-      </MDBTableBody>
+      <MDBTableBody>{phoneRender}</MDBTableBody>
     </MDBTable>
   );
 };
