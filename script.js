@@ -1,4 +1,5 @@
 class Calculator {
+  //constructor de la clase, para el objeto calculadora
   constructor(previousOperandTextElement, currentOperandTextElement) {
     this.previousOperandTextElement = previousOperandTextElement;
     this.currentOperandTextElement = currentOperandTextElement;
@@ -34,7 +35,7 @@ class Calculator {
     this.previousOperand = this.currentOperand;
     this.currentOperand = "";
   }
-
+//operaciones de la calculadora
   compute() {
     let computation;
     const prev = parseFloat(this.previousOperand);
@@ -93,7 +94,7 @@ class Calculator {
     }
   }
 }
-
+//Proceso para octener los valores de los botones
 const numberButtons = document.querySelectorAll("[data-number]");
 const operationButtons = document.querySelectorAll("[data-operation]");
 const equalsButton = document.querySelector("[data-equals]");
@@ -105,7 +106,7 @@ const previousOperandTextElement = document.querySelector(
 const currentOperandTextElement = document.querySelector(
   "[data-current-operand]"
 );
-
+//creando la primera calculadora utilizando el patron builder
 const calculator = new Calculator(
   previousOperandTextElement,
   currentOperandTextElement
@@ -115,14 +116,14 @@ const calculator2 = new Calculator(
   previousOperandTextElement,
   currentOperandTextElement
 );
-
+//singleton
 let calcInstanceSame = (calculator, calculator2) => {
   calculator === calculator2
     ? console.log("Son la misma instancia, Singleton applied!")
     : console.log("No son la misma instancia, Singleton don't applied!");
 };
 calcInstanceSame(calculator, calculator2);
-
+//EVENTOS PARA LOS DIFERENTES BOTONES
 numberButtons.forEach((button) => {
   button.addEventListener("click", () => {
     calculator.appendNumber(button.innerText);
